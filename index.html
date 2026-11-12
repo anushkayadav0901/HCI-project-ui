@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Centpercent — Student Finance, Made Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="presentation-wrapper">
+    <div class="presentation-header">
+      <p class="app-label">CENTPERCENT</p>
+      <p class="app-tagline">Student Finance, Made Simple · Interactive Mobile Prototype</p>
+    </div>
+
+    <!-- PHONE FRAME (390x844 inner viewport) -->
+    <div class="phone-frame">
+      <div class="phone-screen" id="phone-screen">
+        <div class="device-notch">
+          <div class="device-camera"></div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar" id="status-bar">
+          <span style="font-family: 'DM Sans', sans-serif;">9:41</span>
+          <div class="status-icons">
+            <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+              <path d="M1 9h2V5H1v4zm4 2h2V3H5v8zm4 0h2V1H9v10zm4-11v11h2V0h-2z"/>
+            </svg>
+            <svg width="14" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+              <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-3.5-2a5 5 0 0 1 7 0l-1.1 1.1a3.5 3.5 0 0 0-4.8 0L4.5 7.5zm-2.8-2.8a9 9 0 0 1 12.6 0l-1.1 1.1a7.5 7.5 0 0 0-10.4 0L1.7 4.7z"/>
+            </svg>
+            <span style="font-size: 11px;">100%</span>
+          </div>
+        </div>
+
+        <!-- SCREEN STAGE -->
+        <div class="screen-stage" id="screen-stage">
+
+          <!-- 1. WELCOME -->
+          <section class="screen no-nav" id="screen-welcome">
+            <div style="display:flex; align-items:center; gap:10px; margin-top:4px; margin-bottom:12px;">
+              <div style="width:34px; height:34px; border-radius:10px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'DM Sans'; font-weight:700; font-size:17px;">%</div>
+              <div>
+                <div style="font-family:'DM Sans'; font-weight:700; font-size:17px; line-height:1.1;">Centpercent</div>
+                <div style="font-size:11px; color:var(--text-muted);">Money for campus life</div>
+              </div>
+            </div>
+
+            <!-- Cute Student Campus Illustration Card (Filis-inspired, Centpercent Green Theme) -->
+            <div style="border-radius:20px; overflow:hidden; border:1px solid var(--border); background:var(--pale-green); margin-bottom:14px; position:relative;">
+              <img src="assets/student-welcome.png" alt="Student on campus" style="width:100%; height:196px; object-fit:cover; display:block;" onerror="this.style.display='none'" />
+              <span class="pill pill-mint" style="position:absolute; top:10px; left:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">FOR COLLEGE STUDENTS</span>
+            </div>
+
+            <div style="text-align:center; margin-bottom:14px;">
+              <h1 style="font-size:24px; font-weight:700; line-height:1.2; color:var(--text-primary);">Hey Student! 👋<br/>Welcome to Centpercent.</h1>
+              <p style="font-size:12.5px; color:var(--text-muted); line-height:1.45; margin-top:6px;">Your personal money companion designed to help you crush your budget while enjoying campus life.</p>
+            </div>
+
+            <div class="card-pale" style="margin-bottom:16px; padding:12px 14px;">
+              <div style="display:flex; flex-direction:column; gap:8px; font-size:12.5px;">
+                <div style="display:flex; align-items:center; gap:9px;">
+                  <span style="width:22px; height:22px; border-radius:7px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0;">₹</span>
+                  <span>Daily <strong>Safe to Spend</strong> so you never run broke mid-month</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:9px;">
+                  <span style="width:22px; height:22px; border-radius:7px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0;">⇄</span>
+                  <span>Split PG rent, Wi-Fi &amp; mess bills in two taps</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-primary" onclick="showScreen('onboard')">Get Started</button>
+            <button class="btn-secondary" style="margin-top:10px;" onclick="showScreen('login')">Already have an account? Log in</button>
+          </section>
+
+          <!-- 2. LOGIN -->
+          <section class="screen no-nav" id="screen-login">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('welcome')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:600; font-size:15px;">Student Login</span>
+              </div>
+            </div>
+
+            <div style="margin:18px 0 24px;">
+              <span class="pill pill-brand">Simulated Prototype</span>
+              <h2 style="font-size:24px; font-weight:700; margin-top:10px;">Enter your mobile number</h2>
+              <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">We'll send a 4-digit OTP to verify your student account.</p>
+            </div>
+
+            <div style="margin-bottom:18px;">
+              <label class="input-label" for="login-phone">Mobile Number</label>
+              <div style="display:flex; gap:8px;">
+                <div style="width:66px; height:46px; background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-weight:600; font-size:14px;">+91</div>
+                <input id="login-phone" type="tel" maxlength="10" class="input-field" placeholder="98173 27865" value="9817327865" />
+              </div>
+              <p id="login-error" style="font-size:11.5px; color:var(--danger); margin-top:6px; display:none;">Please enter a valid 10-digit mobile number.</p>
+            </div>
+
+            <button class="btn-primary" onclick="handleGetOTP()">Get OTP &rarr;</button>
+
+            <p style="font-size:11.5px; color:var(--text-muted); text-align:center; margin-top:20px; line-height:1.5;">
+              No real SMS or bank connection. Demo data stays locally in your browser.
+            </p>
+          </section>
+
+          <!-- 3. OTP VERIFICATION -->
+          <section class="screen no-nav" id="screen-otp">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('login')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:600; font-size:15px;">Verify Phone</span>
+              </div>
+            </div>
+
+            <h2 style="font-size:23px; font-weight:700; margin-top:10px;">Enter 4-digit OTP</h2>
+            <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">Sent to <strong id="otp-phone-display">+91 98173 27865</strong> &middot; <span style="color:var(--primary); font-weight:600; cursor:pointer;" onclick="showScreen('login')">Edit</span></p>
+
+            <div class="otp-row" id="otp-boxes">
+              <input class="otp-input filled" type="text" inputmode="numeric" maxlength="1" value="4" />
+              <input class="otp-input filled" type="text" inputmode="numeric" maxlength="1" value="8" />
+              <input class="otp-input filled" type="text" inputmode="numeric" maxlength="1" value="2" />
+              <input class="otp-input filled" type="text" inputmode="numeric" maxlength="1" value="9" />
+            </div>
+            <p id="otp-error" style="font-size:11.5px; color:var(--danger); margin-top:-12px; margin-bottom:14px; display:none;">Please enter all 4 digits.</p>
+
+            <button class="btn-primary" onclick="handleVerifyOTP()">Verify &amp; Continue</button>
+
+            <p style="text-align:center; font-size:12.5px; color:var(--text-muted); margin-top:18px;">
+              <span id="otp-timer-wrap">Resend OTP in <strong id="otp-countdown" style="color:var(--primary);">00:59</strong></span>
+              <button id="otp-resend-btn" onclick="resetOTPTimer()" style="display:none; background:none; border:none; color:var(--primary); font-weight:600; cursor:pointer; font-size:12.5px;">Resend OTP now</button>
+            </p>
+          </section>
+
+          <!-- 4. MULTI-STEP ONBOARDING (FILIS-INSPIRED) -->
+          <section class="screen no-nav" id="screen-onboard">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" id="onboard-back-btn" onclick="prevOnboardStep()" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:600; font-size:14px;" id="onboard-step-label">Step 1 of 5</span>
+              </div>
+              <button onclick="showScreen('home')" style="background:none; border:none; font-size:12px; color:var(--text-muted); font-weight:600; cursor:pointer;">Skip</button>
+            </div>
+
+            <!-- 5 Step Dots -->
+            <div id="onboard-dots" style="display:flex; gap:6px; margin-bottom:20px;">
+              <div class="onboard-dot active" style="flex:1; height:5px; border-radius:4px; background:var(--primary);"></div>
+              <div class="onboard-dot" style="flex:1; height:5px; border-radius:4px; background:var(--border);"></div>
+              <div class="onboard-dot" style="flex:1; height:5px; border-radius:4px; background:var(--border);"></div>
+              <div class="onboard-dot" style="flex:1; height:5px; border-radius:4px; background:var(--border);"></div>
+              <div class="onboard-dot" style="flex:1; height:5px; border-radius:4px; background:var(--border);"></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="onboard-step" data-step="1">
+              <h2 style="font-size:22px; font-weight:700;">What should we call you?</h2>
+              <p style="font-size:13px; color:var(--text-muted); margin-top:4px; margin-bottom:18px;">Keep it short and friendly.</p>
+              <label class="input-label" for="ob-name">Nickname</label>
+              <input id="ob-name" type="text" class="input-field" value="Aditi" placeholder="e.g. Aditi" style="margin-bottom:14px;" />
+              <label class="input-label" for="ob-campus">Campus / College (optional)</label>
+              <input id="ob-campus" type="text" class="input-field" value="NSUT · Delhi" placeholder="e.g. NSUT · Delhi" style="margin-bottom:14px;" />
+              <label class="input-label" for="ob-currency">Currency</label>
+              <select id="ob-currency" class="input-field">
+                <option value="₹" selected>₹ INR — Indian Rupee</option>
+              </select>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="onboard-step" data-step="2" style="display:none;">
+              <h2 style="font-size:22px; font-weight:700;">Monthly available money?</h2>
+              <p style="font-size:13px; color:var(--text-muted); margin-top:4px; margin-bottom:18px;">Include pocket money, allowance, or internship stipend.</p>
+              <div class="card-pale" style="text-align:center; padding:22px 16px; margin-bottom:14px;">
+                <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Monthly Allowance</span>
+                <div style="display:flex; align-items:center; justify-content:center; gap:4px; margin-top:8px;">
+                  <span style="font-family:'DM Sans'; font-size:28px; color:var(--primary); font-weight:700;">₹</span>
+                  <input id="ob-allowance" type="number" class="tabular-nums" value="15000" style="width:140px; font-family:'DM Sans'; font-size:34px; font-weight:700; border:none; background:transparent; color:var(--text-primary); text-align:center; outline:none;" />
+                </div>
+              </div>
+              <div class="chip-row" style="justify-content:center;">
+                <button class="chip" onclick="document.getElementById('ob-allowance').value=8000">₹8,000</button>
+                <button class="chip" onclick="document.getElementById('ob-allowance').value=12000">₹12,000</button>
+                <button class="chip active" onclick="document.getElementById('ob-allowance').value=15000">₹15,000</button>
+                <button class="chip" onclick="document.getElementById('ob-allowance').value=20000">₹20,000</button>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="onboard-step" data-step="3" style="display:none;">
+              <h2 style="font-size:22px; font-weight:700;">What do you spend on?</h2>
+              <p style="font-size:13px; color:var(--text-muted); margin-top:4px; margin-bottom:18px;">Select categories to track in your daily feed.</p>
+              <div class="chip-row" id="ob-categories">
+                <button class="chip active" onclick="this.classList.toggle('active')">Food &amp; Mess</button>
+                <button class="chip active" onclick="this.classList.toggle('active')">PG Rent</button>
+                <button class="chip active" onclick="this.classList.toggle('active')">Travel</button>
+                <button class="chip active" onclick="this.classList.toggle('active')">Books &amp; Printing</button>
+                <button class="chip" onclick="this.classList.toggle('active')">Entertainment</button>
+                <button class="chip active" onclick="this.classList.toggle('active')">Shopping</button>
+                <button class="chip active" onclick="this.classList.toggle('active')">Subscriptions</button>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="onboard-step" data-step="4" style="display:none;">
+              <h2 style="font-size:22px; font-weight:700;">Set your monthly budget</h2>
+              <p style="font-size:13px; color:var(--text-muted); margin-top:4px; margin-bottom:18px;">We'll calculate your daily Safe-to-Spend from this.</p>
+              <div class="card" style="margin-bottom:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                  <span style="font-size:13px; color:var(--text-muted);">Monthly Limit</span>
+                  <span id="ob-budget-val" class="tabular-nums" style="font-family:'DM Sans'; font-size:24px; font-weight:700; color:var(--primary);">₹15,000</span>
+                </div>
+                <input id="ob-budget-range" type="range" min="5000" max="30000" step="500" value="15000" style="width:100%; accent-color:var(--primary);" oninput="updateOnboardBudgetPreview(this.value)" />
+                <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted); margin-top:6px;">
+                  <span>₹5,000</span>
+                  <span>₹30,000</span>
+                </div>
+              </div>
+              <div class="card-mint">
+                <div style="font-size:12px; font-weight:600; color:var(--primary-dark);">Estimated Daily Safe-to-Spend</div>
+                <div id="ob-daily-preview" class="tabular-nums" style="font-family:'DM Sans'; font-size:22px; font-weight:700; margin-top:4px;">₹500 / day</div>
+                <div style="font-size:11.5px; color:var(--text-primary); margin-top:2px;">Based on 30 days in a cycle</div>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="onboard-step" data-step="5" style="display:none; text-align:center; padding-top:16px;">
+              <div class="success-circle">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h2 style="font-size:24px; font-weight:700;">You're all set!</h2>
+              <p style="font-size:13px; color:var(--text-muted); margin-top:6px; margin-bottom:20px;">Your student budget is ready. Open Home anytime to check your Safe-to-Spend.</p>
+              <div class="card" style="text-align:left; margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-light); font-size:13px;">
+                  <span style="color:var(--text-muted);">Name</span>
+                  <strong id="ob-summary-name">Aditi</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-light); font-size:13px;">
+                  <span style="color:var(--text-muted);">Monthly Budget</span>
+                  <strong id="ob-summary-budget" class="tabular-nums">₹15,000</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0; font-size:13px;">
+                  <span style="color:var(--text-muted);">Categories</span>
+                  <strong id="ob-summary-cats">6 selected</strong>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-primary" id="onboard-next-btn" style="margin-top:18px;" onclick="nextOnboardStep()">Continue &rarr;</button>
+          </section>
+
+          <!-- 5. HOME DASHBOARD (MOST IMPORTANT) -->
+          <section class="screen active" id="screen-home">
+            <!-- Top Bar -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div onclick="showScreen('profile')" style="width:38px; height:38px; border-radius:12px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'DM Sans'; font-weight:700; font-size:14px; cursor:pointer;" id="home-avatar">AS</div>
+                <div>
+                  <h3 style="font-size:15.5px; font-weight:700;" id="home-greeting">Good evening, Aditi</h3>
+                  <p style="font-size:11.5px; color:var(--text-muted);" id="home-campus">NSUT &middot; Delhi</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="icon-btn" onclick="showScreen('notifications')" aria-label="Notifications">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                  <span class="notif-dot" id="home-notif-dot"></span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Early Warning Banner (auto-shows when >=70% spent) -->
+            <div id="home-safety-warning" class="card" style="display:none; background:var(--warning-bg); border-color:#FCD34D; margin-bottom:12px; padding:12px 14px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+                <div>
+                  <div style="font-size:12.5px; font-weight:700; color:var(--warning);">Budget running low</div>
+                  <div style="font-size:11.5px; color:#78350F; margin-top:2px;">You've used over 70% of your monthly budget.</div>
+                </div>
+                <button class="btn-primary btn-sm" style="background:#B45309; flex-shrink:0;" onclick="showScreen('safety')">Safety Mode</button>
+              </div>
+            </div>
+
+            <!-- Main Safe-to-Spend Card -->
+            <div class="card-green" style="margin-bottom:14px;">
+              <div style="position:absolute; right:-16px; bottom:-24px; font-family:'DM Sans'; font-size:120px; font-weight:700; color:rgba(255,255,255,0.08); line-height:1; pointer-events:none;">%</div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <span style="font-size:12px; color:rgba(255,255,255,0.85); font-weight:500;">Safe to Spend Today</span>
+                  <button onclick="openSafeToSpendInfo()" style="width:17px; height:17px; border-radius:50%; background:rgba(255,255,255,0.2); border:none; color:#fff; font-size:10px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; justify-content:center;" aria-label="Safe to Spend explanation">i</button>
+                </div>
+                <span class="pill pill-dark" id="home-budget-status">On track</span>
+              </div>
+
+              <div style="display:flex; align-items:center; gap:10px; margin:8px 0 12px;">
+                <span id="home-safe-amount" class="tabular-nums" style="font-family:'DM Sans'; font-size:32px; font-weight:700; letter-spacing:-0.03em;">₹563</span>
+                <button onclick="toggleBalance()" style="background:rgba(255,255,255,0.16); border:none; color:#fff; width:30px; height:30px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center;" aria-label="Toggle balance visibility">
+                  <svg id="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+
+              <!-- Weekly / Monthly progress -->
+              <div class="progress-track dark" style="margin-bottom:10px;">
+                <div class="progress-fill light" id="home-budget-bar" style="width:55%;"></div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.15);">
+                <div>
+                  <div style="font-size:11px; color:rgba(255,255,255,0.75);">Spent this month</div>
+                  <div id="home-spent-val" class="tabular-nums" style="font-family:'DM Sans'; font-size:15px; font-weight:700; margin-top:2px;">₹8,249</div>
+                </div>
+                <div>
+                  <div style="font-size:11px; color:rgba(255,255,255,0.75);">Budget left</div>
+                  <div id="home-left-val" class="tabular-nums" style="font-family:'DM Sans'; font-size:15px; font-weight:700; margin-top:2px; color:#A7F3D0;">₹6,751</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions (5) -->
+            <div class="quick-actions-5">
+              <button class="qa-item" onclick="showScreen('send')">
+                <div class="qa-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </div>
+                <span class="qa-label">Send</span>
+              </button>
+              <button class="qa-item" onclick="showScreen('receive')">
+                <div class="qa-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 7L7 17M17 17H7V7"/></svg>
+                </div>
+                <span class="qa-label">Receive</span>
+              </button>
+              <button class="qa-item" onclick="showScreen('receive')">
+                <div class="qa-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v3h-3M14 20h6"/></svg>
+                </div>
+                <span class="qa-label">Scan QR</span>
+              </button>
+              <button class="qa-item" onclick="showScreen('split')">
+                <div class="qa-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="qa-label">Split Bill</span>
+              </button>
+              <button class="qa-item" onclick="showScreen('safety')">
+                <div class="qa-icon" style="background:var(--pale-green);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <span class="qa-label">Safety</span>
+              </button>
+            </div>
+
+            <!-- AI Insight Card -->
+            <div class="card-mint" style="margin-bottom:12px; cursor:pointer;" onclick="showScreen('ai')">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+                <div>
+                  <div style="font-size:11.5px; font-weight:700; color:var(--primary-dark);">AI Spending Insight</div>
+                  <p id="home-ai-insight" style="font-size:12.5px; color:var(--text-primary); margin-top:3px; line-height:1.4;">Food is 38% of your spending this month. Ask AI Buddy for a dinner check &rarr;</p>
+                </div>
+                <span class="pill pill-brand" style="flex-shrink:0;">Ask AI</span>
+              </div>
+            </div>
+
+            <!-- Filis-inspired 2-card Add Expense Quick Launcher -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+              <div class="card" style="padding:12px; cursor:pointer; display:flex; align-items:center; gap:10px;" onclick="quickOpenAddTab('voice')">
+                <div style="width:36px; height:36px; border-radius:10px; background:var(--pale-green); color:var(--primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:12.5px; font-weight:700;">Voice Input</div>
+                  <div style="font-size:10.5px; color:var(--text-muted);">Speak to log</div>
+                </div>
+              </div>
+              <div class="card" style="padding:12px; cursor:pointer; display:flex; align-items:center; gap:10px;" onclick="quickOpenAddTab('receipt')">
+                <div style="width:36px; height:36px; border-radius:10px; background:var(--pale-green); color:var(--primary); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:12.5px; font-weight:700;">Receipt Scan</div>
+                  <div style="font-size:10.5px; color:var(--text-muted);">Snap &amp; save</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upcoming PG Rent Reminder -->
+            <div class="card" style="margin-bottom:12px; padding:13px 15px; display:flex; align-items:center; justify-content:space-between; cursor:pointer;" onclick="showScreen('living')">
+              <div style="display:flex; align-items:center; gap:11px;">
+                <div style="width:36px; height:36px; border-radius:10px; background:var(--warning-bg); color:var(--warning); display:flex; align-items:center; justify-content:center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:13px; font-weight:600;">PG Rent due in 5 days</div>
+                  <div style="font-size:11.5px; color:var(--text-muted);">Flat 402 &middot; Your share ₹5,500</div>
+                </div>
+              </div>
+              <span class="pill pill-warning">Due 15 Nov</span>
+            </div>
+
+            <!-- Savings Goal Preview -->
+            <div class="card" style="margin-bottom:14px; padding:13px 15px; cursor:pointer;" onclick="showScreen('goals')">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:7px;">
+                <span style="font-size:13px; font-weight:600;" id="home-goal-title">Goa Semester Trip</span>
+                <span class="pill pill-mint" id="home-goal-pct">70% saved</span>
+              </div>
+              <div class="progress-track" style="margin-bottom:6px;">
+                <div class="progress-fill" id="home-goal-bar" style="width:70%;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:11.5px; color:var(--text-muted);">
+                <span id="home-goal-amounts" class="tabular-nums">₹14,000 / ₹20,000</span>
+                <span>Tap to add &rarr;</span>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <h3 style="font-size:15px; font-weight:700;">Recent Activity</h3>
+              <button onclick="showScreen('activity')" style="background:none; border:none; font-size:12px; font-weight:600; color:var(--primary); cursor:pointer;">See all &rarr;</button>
+            </div>
+            <div class="card" style="padding:4px 14px;" id="home-recent-list">
+              <!-- Populated by JS -->
+            </div>
+          </section>
+
+          <!-- 6. ADD EXPENSE (3 METHODS) -->
+          <section class="screen" id="screen-add">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('home')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:700; font-size:16px;">Add Expense</span>
+              </div>
+            </div>
+
+            <div class="seg-tabs" id="add-tabs">
+              <button class="seg-tab active" onclick="switchAddTab('voice', this)">Voice</button>
+              <button class="seg-tab" onclick="switchAddTab('receipt', this)">Receipt</button>
+              <button class="seg-tab" onclick="switchAddTab('manual', this)">Manual</button>
+            </div>
+
+            <!-- Voice Tab -->
+            <div id="add-tab-voice">
+              <div class="card" style="text-align:center; padding:22px 16px;">
+                <p style="font-size:12.5px; color:var(--text-muted);">Tap mic and say something like:</p>
+                <p style="font-size:13px; font-weight:600; color:var(--primary); margin-top:4px;">"I spent 140 rupees on coffee"</p>
+
+                <button class="mic-btn" id="voice-mic-btn" onclick="toggleVoiceRecording()" aria-label="Record voice expense">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                </button>
+
+                <div class="wave-bars" id="voice-waves">
+                  <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                  <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                </div>
+
+                <p id="voice-status" style="font-size:12px; color:var(--text-muted);">Tap microphone to start</p>
+
+                <div style="margin-top:12px; display:flex; justify-content:center; gap:6px; flex-wrap:wrap;">
+                  <button class="chip" onclick="simulateVoicePhrase('I spent 140 rupees on coffee')">Try: "140 on coffee"</button>
+                  <button class="chip" onclick="simulateVoicePhrase('Paid 80 for metro travel')">Try: "80 metro travel"</button>
+                </div>
+              </div>
+
+              <!-- Extracted Voice Preview -->
+              <div id="voice-preview-card" class="card-pale" style="margin-top:14px; display:none;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                  <span class="pill pill-mint">Extracted — Please confirm</span>
+                  <span style="font-size:11px; color:var(--text-muted);" id="voice-transcript"></span>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+                  <div>
+                    <label class="input-label">Amount (₹)</label>
+                    <input id="voice-amount" type="number" class="input-field" />
+                  </div>
+                  <div>
+                    <label class="input-label">Category</label>
+                    <select id="voice-category" class="input-field">
+                      <option>Food &amp; Mess</option>
+                      <option>Travel</option>
+                      <option>Books &amp; Printing</option>
+                      <option>Shopping</option>
+                      <option>Entertainment</option>
+                      <option>Subscriptions</option>
+                    </select>
+                  </div>
+                </div>
+                <label class="input-label">Title</label>
+                <input id="voice-title" type="text" class="input-field" style="margin-bottom:12px;" />
+                <button class="btn-primary" onclick="confirmAddExpense('voice')">Confirm &amp; Save Expense</button>
+              </div>
+            </div>
+
+            <!-- Receipt Tab -->
+            <div id="add-tab-receipt" style="display:none;">
+              <div class="card" style="text-align:center; padding:22px 16px;">
+                <input type="file" id="receipt-file-input" accept="image/*" style="display:none;" onchange="handleReceiptUpload(event)" />
+                <div style="width:52px; height:52px; border-radius:14px; background:var(--pale-green); color:var(--primary); display:flex; align-items:center; justify-content:center; margin:0 auto 10px;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h4 style="font-size:15px; font-weight:700;">Scan or Upload Receipt</h4>
+                <p style="font-size:12px; color:var(--text-muted); margin-top:4px; margin-bottom:14px;">Upload a photo to extract merchant, date &amp; total.</p>
+                <div style="display:flex; gap:8px;">
+                  <button class="btn-primary" style="flex:1; height:42px; font-size:13px;" onclick="document.getElementById('receipt-file-input').click()">Upload Photo</button>
+                  <button class="btn-secondary" style="flex:1; height:42px; font-size:13px;" onclick="simulateReceiptScan()">Sample Receipt</button>
+                </div>
+              </div>
+
+              <div id="receipt-preview-card" class="card-pale" style="margin-top:14px; display:none;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                  <span class="pill pill-mint" id="receipt-scan-badge">Demo Extraction Ready</span>
+                </div>
+                <img id="receipt-img-preview" alt="Receipt preview" style="width:100%; max-height:130px; object-fit:cover; border-radius:10px; border:1px solid var(--border); margin-bottom:10px; display:none;" />
+                <div id="receipt-sample-box" class="card" style="padding:10px; font-family:monospace; font-size:11px; margin-bottom:10px; display:none;">
+                  <div>CAMPUS CAFE &amp; BOOKS</div>
+                  <div>Date: Today &middot; UPI Ref: 829104</div>
+                  <div>Cold Coffee + Sandwich ....... ₹185.00</div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+                  <div>
+                    <label class="input-label">Amount (₹)</label>
+                    <input id="receipt-amount" type="number" class="input-field" value="185" />
+                  </div>
+                  <div>
+                    <label class="input-label">Category</label>
+                    <select id="receipt-category" class="input-field">
+                      <option>Food &amp; Mess</option>
+                      <option>Books &amp; Printing</option>
+                      <option>Travel</option>
+                      <option>Shopping</option>
+                    </select>
+                  </div>
+                </div>
+                <label class="input-label">Merchant / Title</label>
+                <input id="receipt-title" type="text" class="input-field" value="Campus Cafe & Books" style="margin-bottom:12px;" />
+                <button class="btn-primary" onclick="confirmAddExpense('receipt')">Confirm &amp; Save Expense</button>
+              </div>
+            </div>
+
+            <!-- Manual Tab -->
+            <div id="add-tab-manual" style="display:none;">
+              <div class="card" style="margin-bottom:12px;">
+                <label class="input-label">Amount (₹)</label>
+                <div style="display:flex; align-items:center; gap:6px; border-bottom:1px solid var(--border-light); padding-bottom:10px; margin-bottom:12px;">
+                  <span style="font-family:'DM Sans'; font-size:28px; font-weight:700; color:var(--primary);">₹</span>
+                  <input id="manual-amount" type="number" placeholder="0" class="tabular-nums" style="width:100%; font-family:'DM Sans'; font-size:32px; font-weight:700; border:none; outline:none; color:var(--text-primary);" />
+                </div>
+
+                <label class="input-label" for="manual-title">Title</label>
+                <input id="manual-title" type="text" class="input-field" placeholder="e.g. Campus Canteen Lunch" style="margin-bottom:12px;" />
+
+                <label class="input-label">Category</label>
+                <div class="chip-row" id="manual-categories" style="margin-bottom:12px;">
+                  <button class="chip active" onclick="selectManualChip(this, 'Food & Mess')">Food &amp; Mess</button>
+                  <button class="chip" onclick="selectManualChip(this, 'PG Rent')">PG Rent</button>
+                  <button class="chip" onclick="selectManualChip(this, 'Travel')">Travel</button>
+                  <button class="chip" onclick="selectManualChip(this, 'Books & Printing')">Books</button>
+                  <button class="chip" onclick="selectManualChip(this, 'Shopping')">Shopping</button>
+                  <button class="chip" onclick="selectManualChip(this, 'Entertainment')">Entertainment</button>
+                  <button class="chip" onclick="selectManualChip(this, 'Subscriptions')">Subscriptions</button>
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+                  <div>
+                    <label class="input-label" for="manual-method">Payment Method</label>
+                    <select id="manual-method" class="input-field">
+                      <option value="UPI">UPI</option>
+                      <option value="Card">Card</option>
+                      <option value="Cash">Cash</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="input-label" for="manual-date">Date</label>
+                    <input id="manual-date" type="date" class="input-field" />
+                  </div>
+                </div>
+
+                <label class="input-label" for="manual-note">Note (optional)</label>
+                <input id="manual-note" type="text" class="input-field" placeholder="Add a short note..." />
+              </div>
+
+              <button class="btn-primary" onclick="confirmAddExpense('manual')">Save Expense</button>
+            </div>
+          </section>
+
+          <!-- 7. ACTIVITY & SPENDING INSIGHTS -->
+          <section class="screen" id="screen-activity">
+            <div class="screen-header">
+              <div>
+                <h2 style="font-size:20px; font-weight:700;">Activity</h2>
+                <p style="font-size:12px; color:var(--text-muted);">Your money at a glance</p>
+              </div>
+              <span class="pill pill-brand" id="activity-count-pill">8 txns</span>
+            </div>
+
+            <!-- Filis-inspired Income vs Spent Summary Cards -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+              <div class="card-pale" style="padding:12px 14px;">
+                <div style="font-size:11px; font-weight:600; color:var(--primary);">Income</div>
+                <div id="act-summary-income" class="tabular-nums" style="font-family:'DM Sans'; font-size:20px; font-weight:700; color:var(--primary); margin-top:2px;">₹15,500</div>
+              </div>
+              <div class="card" style="padding:12px 14px; background:#FFFBEB; border-color:#FDE68A;">
+                <div style="font-size:11px; font-weight:600; color:var(--warning);">Spent</div>
+                <div id="act-summary-spent" class="tabular-nums" style="font-family:'DM Sans'; font-size:20px; font-weight:700; color:var(--text-primary); margin-top:2px;">₹8,249</div>
+              </div>
+            </div>
+
+            <div class="seg-tabs">
+              <button class="seg-tab active" onclick="switchActivityTab('transactions', this)">Transactions</button>
+              <button class="seg-tab" onclick="switchActivityTab('timeline', this)">Timeline</button>
+              <button class="seg-tab" onclick="switchActivityTab('insights', this)">Insights</button>
+            </div>
+
+            <!-- Transactions Tab -->
+            <div id="act-tab-transactions">
+              <input id="act-search" type="text" class="input-field" placeholder="Search merchant or category..." style="height:40px; margin-bottom:10px;" oninput="renderActivity()" />
+              <div style="display:flex; gap:6px; overflow-x:auto; padding-bottom:6px; margin-bottom:10px;">
+                <button class="chip active" onclick="setActivityTypeFilter('all', this)">All</button>
+                <button class="chip" onclick="setActivityTypeFilter('expense', this)">Expenses</button>
+                <button class="chip" onclick="setActivityTypeFilter('income', this)">Income</button>
+                <select id="act-cat-filter" class="chip" style="outline:none;" onchange="renderActivity()">
+                  <option value="all">All Categories</option>
+                  <option value="Food & Mess">Food &amp; Mess</option>
+                  <option value="PG Rent">PG Rent</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Books & Printing">Books</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Subscriptions">Subscriptions</option>
+                  <option value="Entertainment">Entertainment</option>
+                </select>
+                <select id="act-date-filter" class="chip" style="outline:none;" onchange="renderActivity()">
+                  <option value="all">All Dates</option>
+                  <option value="today">Today</option>
+                  <option value="week">This Week</option>
+                </select>
+              </div>
+              <div class="card" style="padding:4px 14px;" id="act-transactions-list"></div>
+            </div>
+
+            <!-- Timeline Tab -->
+            <div id="act-tab-timeline" style="display:none;">
+              <div id="timeline-calendar-strip" style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:12px;"></div>
+              <div id="act-timeline-list"></div>
+            </div>
+
+            <!-- Insights Tab -->
+            <div id="act-tab-insights" style="display:none;">
+              <div class="card" style="margin-bottom:12px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                  <h4 style="font-size:14.5px; font-weight:700;">Spending by Category</h4>
+                  <span class="pill pill-brand">This Month</span>
+                </div>
+                <div class="donut-wrap">
+                  <div class="donut-chart" id="insights-donut">
+                    <div class="donut-hole">
+                      <span style="font-size:10px; color:var(--text-muted);">Total</span>
+                      <strong id="insights-total" class="tabular-nums" style="font-family:'DM Sans'; font-size:13px;">₹8,249</strong>
+                    </div>
+                  </div>
+                  <div id="insights-legend" style="flex:1; display:flex; flex-direction:column; gap:5px; font-size:11.5px;"></div>
+                </div>
+              </div>
+
+              <div class="card" style="margin-bottom:12px;">
+                <h4 style="font-size:14.5px; font-weight:700; margin-bottom:10px;">Weekly Summary vs Last Month</h4>
+                <div class="bar-row">
+                  <span class="bar-label">Wk 1</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:78%;"></div></div>
+                  <span class="tabular-nums" style="font-size:11.5px; font-weight:600; width:50px; text-align:right;">₹6,100</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">Wk 2</span>
+                  <div class="bar-track"><div class="bar-fill" style="width:42%;"></div></div>
+                  <span class="tabular-nums" style="font-size:11.5px; font-weight:600; width:50px; text-align:right;">₹2,149</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); padding-top:8px; border-top:1px solid var(--border-light);">
+                  <span>Last Month Total: <strong>₹11,400</strong></span>
+                  <span style="color:var(--success); font-weight:600;">27% lower so far</span>
+                </div>
+              </div>
+
+              <div class="card-mint">
+                <div style="font-size:12px; font-weight:700; color:var(--primary-dark);">Friendly Pattern Notice</div>
+                <p id="insights-pattern-text" style="font-size:12.5px; margin-top:4px; line-height:1.45;">Food orders spiked on weekends (₹320 avg). Packing snacks twice a week could save ₹600/month.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. SEND MONEY -->
+          <section class="screen" id="screen-send">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('home')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:700; font-size:16px;">Send Money</span>
+              </div>
+              <span class="pill pill-brand">Demo UPI</span>
+            </div>
+
+            <input id="send-recipient" type="text" class="input-field" placeholder="Search name, mobile or UPI ID..." value="Priya Sharma (priya.sharma@okaxis)" style="margin-bottom:14px;" />
+
+            <div style="margin-bottom:14px;">
+              <span class="input-label">Recent Contacts</span>
+              <div style="display:flex; gap:12px;">
+                <button onclick="selectRecipient('Priya Sharma (priya.sharma@okaxis)')" style="background:none; border:none; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:5px;">
+                  <div style="width:46px; height:46px; border-radius:14px; background:var(--mint); border:1.5px solid var(--primary); color:var(--primary); font-weight:700; display:flex; align-items:center; justify-content:center;">PS</div>
+                  <span style="font-size:11px; font-weight:600; color:var(--text-primary);">Priya</span>
+                </button>
+                <button onclick="selectRecipient('Rohit Kumar (rohit.k@upi)')" style="background:none; border:none; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:5px;">
+                  <div style="width:46px; height:46px; border-radius:14px; background:#fff; border:1px solid var(--border); color:var(--text-primary); font-weight:700; display:flex; align-items:center; justify-content:center;">RK</div>
+                  <span style="font-size:11px; font-weight:600; color:var(--text-primary);">Rohit</span>
+                </button>
+                <button onclick="selectRecipient('Aryan Mehta (aryan.m@okicici)')" style="background:none; border:none; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:5px;">
+                  <div style="width:46px; height:46px; border-radius:14px; background:#fff; border:1px solid var(--border); color:var(--text-primary); font-weight:700; display:flex; align-items:center; justify-content:center;">AM</div>
+                  <span style="font-size:11px; font-weight:600; color:var(--text-primary);">Aryan</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="card" style="text-align:center; padding:20px 14px; margin-bottom:12px;">
+              <span style="font-size:12px; color:var(--text-muted); font-weight:600;">Enter Amount</span>
+              <div style="display:flex; align-items:center; justify-content:center; gap:4px; margin:8px 0 12px;">
+                <span style="font-family:'DM Sans'; font-size:30px; color:var(--primary); font-weight:700;">₹</span>
+                <input id="send-amount" type="number" value="500" class="tabular-nums" style="width:130px; font-family:'DM Sans'; font-size:38px; font-weight:700; border:none; outline:none; text-align:center; color:var(--text-primary);" />
+              </div>
+              <div class="chip-row" style="justify-content:center;">
+                <button class="chip" onclick="setSendAmount(100, this)">₹100</button>
+                <button class="chip active" onclick="setSendAmount(500, this)">₹500</button>
+                <button class="chip" onclick="setSendAmount(1000, this)">₹1,000</button>
+                <button class="chip" onclick="setSendAmount(2000, this)">₹2,000</button>
+              </div>
+            </div>
+
+            <input id="send-note" type="text" class="input-field" placeholder="Optional note (e.g. Friday snacks)" style="margin-bottom:10px;" />
+
+            <select id="send-method" class="input-field" style="margin-bottom:14px;">
+              <option value="Campus Wallet">Campus Wallet (HDFC ··· 7672)</option>
+              <option value="UPI">UPI Direct</option>
+              <option value="Debit Card">Student Debit Card</option>
+            </select>
+
+            <button class="btn-primary" onclick="openSendReview()">Review Payment &rarr;</button>
+          </section>
+
+          <!-- 9. PAYMENT SUCCESS + VOLUNTARY SAVINGS NUDGE -->
+          <section class="screen" id="screen-success" style="text-align:center;">
+            <div class="success-circle">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="pill pill-success">Simulated Payment Sent</span>
+            <h2 id="success-amount" class="tabular-nums" style="font-size:30px; font-weight:700; margin-top:8px;">₹500</h2>
+            <p id="success-recipient" style="font-size:13px; color:var(--text-muted); margin-top:3px;">Sent to Priya Sharma</p>
+            <p id="success-txn-id" style="font-size:11px; color:var(--text-light); margin-top:2px;">Demo Txn ID: CP-DEMO-849201</p>
+
+            <!-- Filis-inspired voluntary savings nudge -->
+            <div class="card-green" id="success-nudge-card" style="text-align:left; margin:18px 0 14px; padding:16px;">
+              <span class="pill pill-dark" style="margin-bottom:8px;">OPTIONAL ROUND-UP</span>
+              <h4 style="font-size:15px; font-weight:700;">Add ₹20 to your Goa goal?</h4>
+              <p style="font-size:12px; color:rgba(255,255,255,0.82); margin-top:3px;">One small step closer. Never deducted automatically.</p>
+              <div style="display:flex; gap:8px; margin-top:12px;">
+                <button class="btn-secondary btn-sm" style="background:#fff; color:var(--primary); border:none; flex:1;" onclick="acceptSavingsNudge(20)">Save ₹20</button>
+                <button class="btn-secondary btn-sm" style="background:rgba(255,255,255,0.16); color:#fff; border:none; flex:1;" onclick="dismissSavingsNudge()">Maybe later</button>
+              </div>
+            </div>
+
+            <div class="card" style="text-align:left; margin-bottom:14px; font-size:12.5px;">
+              <div style="display:flex; justify-content:space-between; padding:5px 0;">
+                <span style="color:var(--text-muted);">Payment Method</span>
+                <strong id="success-method">Campus Wallet</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding:5px 0;">
+                <span style="color:var(--text-muted);">Status</span>
+                <strong style="color:var(--success);">Completed (Demo)</strong>
+              </div>
+            </div>
+
+            <button class="btn-primary" onclick="showScreen('home')">Return to Home</button>
+            <button class="btn-secondary" style="margin-top:8px;" onclick="showScreen('split')">Split this payment</button>
+          </section>
+
+          <!-- 10. RECEIVE MONEY & PERSONAL QR -->
+          <section class="screen" id="screen-receive">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('home')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:700; font-size:16px;">Receive Money</span>
+              </div>
+              <span class="pill pill-brand">Demo QR</span>
+            </div>
+
+            <div class="card-green" style="text-align:center; padding:20px 18px; margin-bottom:14px;">
+              <div style="width:44px; height:44px; border-radius:14px; background:rgba(255,255,255,0.18); margin:0 auto 8px; display:flex; align-items:center; justify-content:center; font-weight:700;">AS</div>
+              <h3 style="font-size:17px; font-weight:700;" id="receive-name">Aditi Sharma</h3>
+              <p style="font-size:11.5px; color:rgba(255,255,255,0.8); margin-bottom:14px;">Linked: HDFC Bank ··· 7672 (Simulated)</p>
+
+              <div style="background:#fff; border-radius:16px; padding:16px; display:inline-block;">
+                <svg width="146" height="146" viewBox="0 0 100 100" aria-label="Demo QR Code">
+                  <path fill="#123B2E" d="M4,4 h28 v28 h-28 z M10,10 h16 v16 h-16 z M14,14 h8 v8 h-8 z M68,4 h28 v28 h-28 z M74,10 h16 v16 h-16 z M78,14 h8 v8 h-8 z M4,68 h28 v28 h-28 z M10,74 h16 v16 h-16 z M14,78 h8 v8 h-8 z M40,8 h8 v8 h-8 z M52,14 h10 v6 h-10 z M38,24 h12 v8 h-12 z M8,40 h14 v8 h-14 z M28,42 h16 v14 h-16 z M50,38 h10 v10 h-10 z M68,42 h12 v8 h-12 z M86,40 h10 v14 h-10 z M40,62 h14 v12 h-14 z M62,62 h10 v16 h-10 z M78,66 h16 v10 h-16 z M44,82 h14 v12 h-14 z M68,84 h24 v10 h-24 z"/>
+                </svg>
+                <div id="receive-qr-amount-tag" style="font-size:11.5px; font-weight:700; color:var(--primary); margin-top:6px; display:none;"></div>
+              </div>
+              <div style="font-size:10.5px; color:rgba(255,255,255,0.72); margin-top:8px;">Prototype QR placeholder — not for live bank transfers</div>
+            </div>
+
+            <div class="card" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; padding:12px 14px;">
+              <div>
+                <div style="font-size:11px; color:var(--text-muted);">Personal UPI ID</div>
+                <div id="receive-upi-id" style="font-size:13.5px; font-weight:600;">aditi.sharma@centpercent</div>
+              </div>
+              <button class="btn-primary btn-sm" onclick="copyUPI()">Copy</button>
+            </div>
+
+            <div class="card" style="margin-bottom:12px;">
+              <label class="input-label">Request a specific amount (optional)</label>
+              <div style="display:flex; gap:8px;">
+                <input id="receive-req-amount" type="number" class="input-field" placeholder="e.g. 600" style="height:40px;" />
+                <button class="btn-secondary btn-sm" style="height:40px;" onclick="setRequestAmount()">Set Amount</button>
+              </div>
+            </div>
+
+            <button class="btn-primary" onclick="showToast('Demo QR link copied to share!')">Share QR Code</button>
+          </section>
+
+          <!-- 11. SPLIT & SETTLE -->
+          <section class="screen" id="screen-split">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('home')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:700; font-size:16px;">Split &amp; Settle</span>
+              </div>
+            </div>
+
+            <div class="card-green" style="margin-bottom:14px; padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="pill pill-dark" id="split-count-badge">4 people</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.8);">Your share</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:8px;">
+                <div>
+                  <div id="split-preview-title" style="font-size:15px; font-weight:700;">Flat 402 — Grocery &amp; Wi-Fi</div>
+                  <div id="split-preview-total" style="font-size:12px; color:rgba(255,255,255,0.8);">Total: ₹2,400</div>
+                </div>
+                <div id="split-per-person" class="tabular-nums" style="font-family:'DM Sans'; font-size:26px; font-weight:700;">₹600</div>
+              </div>
+            </div>
+
+            <div class="card" style="margin-bottom:12px;">
+              <label class="input-label" for="split-title">Bill Title</label>
+              <input id="split-title" type="text" class="input-field" value="Flat 402 — Grocery & Wi-Fi" style="margin-bottom:10px;" oninput="recalculateSplit()" />
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+                <div>
+                  <label class="input-label" for="split-total">Total Amount (₹)</label>
+                  <input id="split-total" type="number" class="input-field" value="2400" oninput="recalculateSplit()" />
+                </div>
+                <div>
+                  <label class="input-label" for="split-payer">Who Paid?</label>
+                  <select id="split-payer" class="input-field" onchange="recalculateSplit()">
+                    <option value="Aditi (You)">Aditi (You)</option>
+                    <option value="Priya Sharma">Priya Sharma</option>
+                    <option value="Rohit Kumar">Rohit Kumar</option>
+                    <option value="Aryan Mehta">Aryan Mehta</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="seg-tabs" style="margin-bottom:10px;">
+                <button class="seg-tab active" id="split-mode-equal" onclick="setSplitMode('equal')">Equal Split</button>
+                <button class="seg-tab" id="split-mode-custom" onclick="setSplitMode('custom')">Custom Split</button>
+              </div>
+
+              <div id="split-participants-list" style="display:flex; flex-direction:column; gap:8px;">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+
+            <button class="btn-primary" onclick="sendSplitRequests()">Send Demo Payment Requests</button>
+
+            <div style="margin-top:16px;">
+              <h4 style="font-size:14px; font-weight:700; margin-bottom:8px;">Shared Ledger</h4>
+              <div id="split-ledger-list" style="display:flex; flex-direction:column; gap:8px;"></div>
+            </div>
+          </section>
+
+          <!-- 12. STUDENT LIVING HUB -->
+          <section class="screen" id="screen-living">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('more')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <div>
+                  <h2 style="font-size:18px; font-weight:700;">Student Living Hub</h2>
+                  <p style="font-size:11.5px; color:var(--text-muted);">Flat 402 &middot; 4 roommates</p>
+                </div>
+              </div>
+              <span class="pill pill-brand">Shared</span>
+            </div>
+
+            <!-- Rent & Bills -->
+            <div class="card" style="margin-bottom:12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <h4 style="font-size:14px; font-weight:700;">Rent &amp; Bills</h4>
+                <span style="font-size:11.5px; color:var(--text-muted);">Monthly</span>
+              </div>
+              <div id="living-bills-list" style="display:flex; flex-direction:column; gap:9px;"></div>
+            </div>
+
+            <!-- Shared Essentials -->
+            <div class="card" style="margin-bottom:12px;">
+              <h4 style="font-size:14px; font-weight:700; margin-bottom:10px;">Shared Essentials</h4>
+              <div style="display:flex; flex-direction:column; gap:8px; font-size:13px;">
+                <div style="display:flex; justify-content:space-between;">
+                  <span>Groceries &amp; Veggies</span>
+                  <span class="tabular-nums"><strong>₹300</strong> <span style="color:var(--text-muted); font-size:11px;">/person</span></span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span>RO Water Cans (6x)</span>
+                  <span class="tabular-nums"><strong>₹30</strong> <span style="color:var(--text-muted); font-size:11px;">/person</span></span>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span>Cleaning &amp; Laundry</span>
+                  <span class="tabular-nums"><strong>₹55</strong> <span style="color:var(--text-muted); font-size:11px;">/person</span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shared Subscriptions -->
+            <div class="card" style="margin-bottom:12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <h4 style="font-size:14px; font-weight:700;">Shared Subscriptions</h4>
+                <span class="pill pill-mint">₹200 / mo</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px; font-size:13px;">
+                <div style="display:flex; justify-content:space-between;">
+                  <span>Spotify Family (4 seats)</span>
+                  <strong class="tabular-nums">₹37/mo</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span>Netflix Standard (4 ways)</span>
+                  <strong class="tabular-nums">₹163/mo</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Emergency Room Fund -->
+            <div class="card-pale">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <h4 style="font-size:14px; font-weight:700;">Emergency Room Fund</h4>
+                <span id="room-fund-total" class="tabular-nums" style="font-weight:700; color:var(--primary);">₹4,200 / ₹10,000</span>
+              </div>
+              <div class="progress-track" style="margin-bottom:10px;">
+                <div class="progress-fill" id="room-fund-bar" style="width:42%;"></div>
+              </div>
+              <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">
+                Aditi ₹1,200 &middot; Priya ₹1,000 &middot; Rohit ₹1,000 &middot; Aryan ₹1,000
+              </div>
+              <button class="btn-primary btn-sm" style="width:100%;" onclick="contributeRoomFund()">+ Contribute ₹200</button>
+            </div>
+          </section>
+
+          <!-- 13. SAFETY MODE (EMERGENCY MODE) -->
+          <section class="screen" id="screen-safety">
+            <div class="screen-safety-theme">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <h2 style="font-size:19px; font-weight:700;">Safety Mode</h2>
+                </div>
+                <span class="pill pill-dark" id="safety-status-pill">Active</span>
+              </div>
+              <p style="font-size:12.5px; color:rgba(255,255,255,0.82); margin-bottom:14px;">Essentials-only mode protects your remaining balance until your next allowance.</p>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+                <div class="safety-card">
+                  <div style="font-size:11px; color:rgba(255,255,255,0.75); text-transform:uppercase;">Protected Balance</div>
+                  <div id="safety-protected-bal" class="tabular-nums" style="font-family:'DM Sans'; font-size:24px; font-weight:700; margin-top:4px;">₹1,420</div>
+                </div>
+                <div class="safety-card">
+                  <div style="font-size:11px; color:rgba(255,255,255,0.75); text-transform:uppercase;">Daily Limit</div>
+                  <div id="safety-daily-limit" class="tabular-nums" style="font-family:'DM Sans'; font-size:24px; font-weight:700; margin-top:4px; color:#A7F3D0;">₹118</div>
+                </div>
+              </div>
+
+              <div class="safety-card" style="background:rgba(221,243,225,0.16); margin-bottom:14px;">
+                <div style="display:flex; align-items:baseline; gap:8px;">
+                  <span style="font-family:'DM Sans'; font-size:32px; font-weight:700;">12</span>
+                  <span style="font-size:14px; font-weight:600;">more days to go</span>
+                </div>
+                <p style="font-size:12px; color:rgba(255,255,255,0.82); margin-top:4px;">Stick to essentials and you'll finish the month with zero borrowing.</p>
+              </div>
+
+              <h4 style="font-size:13.5px; font-weight:700; margin-bottom:8px;">Daily Essentials Allocation</h4>
+              <div class="safety-card" style="margin-bottom:14px; padding:12px 14px;">
+                <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.12); font-size:13px;">
+                  <span>Food (Mess / Canteen)</span>
+                  <strong id="safety-food" class="tabular-nums">₹70</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.12); font-size:13px;">
+                  <span>Transport (Metro / Bus)</span>
+                  <strong id="safety-transport" class="tabular-nums">₹30</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0; font-size:13px;">
+                  <span>Safety Buffer</span>
+                  <strong id="safety-buffer" class="tabular-nums">₹18</strong>
+                </div>
+              </div>
+
+              <div class="safety-card" style="margin-bottom:16px;">
+                <div style="font-size:12.5px; font-weight:700; margin-bottom:6px;">Suggested Adjustments</div>
+                <ul style="font-size:12px; color:rgba(255,255,255,0.86); padding-left:16px; line-height:1.6;">
+                  <li>Skip delivery apps this week &mdash; save ~₹280</li>
+                  <li>Use campus mess for dinner &mdash; save ~₹200</li>
+                  <li>Walk or share auto to metro &mdash; save ~₹60</li>
+                </ul>
+              </div>
+
+              <button class="btn-secondary" style="background:transparent; color:#fff; border-color:rgba(255,255,255,0.4);" onclick="toggleSafetyMode()">Exit Safety Mode</button>
+            </div>
+          </section>
+
+          <!-- 14. SOCIAL HELPER (FILIS-INSPIRED) -->
+          <section class="screen" id="screen-social">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('more')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:700; font-size:16px;">Social Helper</span>
+              </div>
+            </div>
+
+            <div class="card-green" style="margin-bottom:14px; padding:18px;">
+              <h3 style="font-size:18px; font-weight:700;">Friday night? Keep it light.</h3>
+              <p style="font-size:12.5px; color:rgba(255,255,255,0.84); margin-top:4px;">Your Safe-to-Spend today is <strong id="social-safe-limit">₹563</strong>. Pick an option that fits without stress.</p>
+            </div>
+
+            <h4 style="font-size:13.5px; font-weight:700; margin-bottom:8px;">Illustrative Outing Options</h4>
+            <div id="social-options-list" style="display:flex; flex-direction:column; gap:8px; margin-bottom:14px;">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div class="card" style="margin-bottom:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:13px; font-weight:700;">Group Split Estimate</span>
+                <span id="social-selected-label" class="pill pill-brand">Local Street Food</span>
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                <label style="font-size:12.5px; color:var(--text-muted);">Friends joining:</label>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <button class="chip" onclick="changeSocialGroup(-1)">-</button>
+                  <strong id="social-group-count">4</strong>
+                  <button class="chip" onclick="changeSocialGroup(1)">+</button>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:10px; padding-top:8px; border-top:1px solid var(--border-light); font-size:13px;">
+                <span>Estimated group total:</span>
+                <strong id="social-group-total" class="tabular-nums">₹480 (₹120 each)</strong>
+              </div>
+              <button class="btn-primary btn-sm" style="width:100%; margin-top:10px;" onclick="shareSocialPlan()">Copy &amp; Share Plan</button>
+            </div>
+
+            <h4 style="font-size:13.5px; font-weight:700; margin-bottom:8px;">A little help saying no</h4>
+            <div class="card-pale" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+              <p style="font-size:12px; line-height:1.45;">"Saving for our Goa trip, so I'll skip pricey spots tonight. Campus canteen?"</p>
+              <button class="btn-secondary btn-sm" onclick="copyText('Saving for our Goa trip, so I will skip pricey spots tonight. Campus canteen?')">Copy</button>
+            </div>
+          </section>
+
+          <!-- 15. SAVINGS GOALS -->
+          <section class="screen" id="screen-goals">
+            <div class="screen-header">
+              <div>
+                <h2 style="font-size:20px; font-weight:700;">Goals</h2>
+                <p style="font-size:12px; color:var(--text-muted);">A little today, more tomorrow</p>
+              </div>
+              <span class="pill pill-mint" id="goals-streak-pill">7-day streak</span>
+            </div>
+
+            <div class="card-green" style="margin-bottom:14px; padding:16px;">
+              <div style="font-size:11.5px; color:rgba(255,255,255,0.8);">Total Semester Savings</div>
+              <div id="goals-total-saved" class="tabular-nums" style="font-family:'DM Sans'; font-size:28px; font-weight:700; margin-top:2px;">₹27,500</div>
+              <div style="display:flex; justify-content:space-between; margin-top:12px;">
+                <div style="text-align:center;"><div style="font-size:10px; opacity:0.8; margin-bottom:4px;">M</div><div style="width:26px; height:26px; border-radius:50%; background:#22C55E; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">✓</div></div>
+                <div style="text-align:center;"><div style="font-size:10px; opacity:0.8; margin-bottom:4px;">T</div><div style="width:26px; height:26px; border-radius:50%; background:#22C55E; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">✓</div></div>
+                <div style="text-align:center;"><div style="font-size:10px; opacity:0.8; margin-bottom:4px;">W</div><div style="width:26px; height:26px; border-radius:50%; background:#22C55E; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">✓</div></div>
+                <div style="text-align:center;"><div style="font-size:10px; opacity:0.8; margin-bottom:4px;">T</div><div style="width:26px; height:26px; border-radius:50%; background:#22C55E; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">✓</div></div>
+                <div style="text-align:center;"><div style="font-size:10px; opacity:0.8; margin-bottom:4px;">F</div><div style="width:26px; height:26px; border-radius:50%; background:#22C55E; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">✓</div></div>
+                <div style="text-align:center;"><div style="font-size:10px; opacity:0.8; margin-bottom:4px;">S</div><div style="width:26px; height:26px; border-radius:50%; background:#22C55E; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">✓</div></div>
+                <div style="text-align:center;"><div style="font-size:10px; opacity:0.8; margin-bottom:4px;">S</div><div style="width:26px; height:26px; border-radius:50%; background:#fff; color:var(--primary); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">★</div></div>
+              </div>
+            </div>
+
+            <div id="goals-list" style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px;">
+              <!-- Rendered by JS -->
+            </div>
+
+            <!-- No-Spend Weekend Challenge -->
+            <div class="card-mint" style="margin-bottom:12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4 style="font-size:14px; font-weight:700;">No-Spend Weekend Challenge</h4>
+                <span class="pill pill-brand" id="challenge-status-pill">Optional</span>
+              </div>
+              <p style="font-size:12px; margin-top:4px;">Skip non-essential spends Sat-Sun to save ₹500 for your Goa trip.</p>
+              <button class="btn-primary btn-sm" style="margin-top:10px;" id="challenge-btn" onclick="toggleWeekendChallenge()">Join Challenge</button>
+            </div>
+
+            <!-- Weekly Round-up Consent -->
+            <div class="card" style="margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; gap:10px;">
+              <div>
+                <div style="font-size:13px; font-weight:700;">Weekly Round-up Suggestion</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Add ₹50 spare change to Goa Trip?</div>
+              </div>
+              <button class="btn-secondary btn-sm" onclick="addToGoal(1, 50)">Save ₹50</button>
+            </div>
+
+            <button class="btn-primary" onclick="openNewGoalModal()">+ Create New Goal</button>
+          </section>
+
+          <!-- 16. MONEY SCHOOL / LEARN -->
+          <section class="screen" id="screen-learn">
+            <div class="screen-header">
+              <div>
+                <h2 style="font-size:20px; font-weight:700;">Money School</h2>
+                <p style="font-size:12px; color:var(--text-muted);">Short lessons, smarter money</p>
+              </div>
+              <span class="pill pill-brand">Level 2</span>
+            </div>
+
+            <!-- Filis-inspired Ask AI Search Bar -->
+            <div class="card" style="padding:9px 12px; margin-bottom:12px; display:flex; align-items:center; gap:8px; cursor:pointer;" onclick="showScreen('ai'); askAIPreset('What is an APR?');">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span style="font-size:12.5px; color:var(--text-muted); flex:1;">Ask AI: What is an APR?</span>
+              <span class="pill pill-mint">Ask</span>
+            </div>
+
+            <!-- Featured Card -->
+            <div class="card-green" style="margin-bottom:12px;">
+              <span class="pill pill-dark" style="margin-bottom:8px;">5 MIN READ &middot; BEGINNER</span>
+              <h3 style="font-size:18px; font-weight:700;">The 50 / 30 / 20 Rule</h3>
+              <p style="font-size:12.5px; color:rgba(255,255,255,0.84); margin-top:4px; margin-bottom:12px;">50% essentials, 30% campus life, 20% savings — your student budget simplified.</p>
+              <div class="progress-track dark" style="margin-bottom:12px;">
+                <div class="progress-fill light" style="width:60%;"></div>
+              </div>
+              <button class="btn-secondary btn-sm" style="background:#fff; color:var(--primary); border:none;" onclick="openLessonModal(0)">Continue Learning &rarr;</button>
+            </div>
+
+            <!-- Filis-inspired Category Filter Chips -->
+            <div style="display:flex; gap:6px; overflow-x:auto; padding-bottom:6px; margin-bottom:10px;">
+              <button class="chip active" onclick="filterLearnCategory('all', this)">All</button>
+              <button class="chip" onclick="filterLearnCategory('Budgeting', this)">Budgeting</button>
+              <button class="chip" onclick="filterLearnCategory('Track Spending', this)">Track Spending</button>
+              <button class="chip" onclick="filterLearnCategory('Save Smart', this)">Save Smart</button>
+            </div>
+
+            <!-- 2-Column Continue Learning Cards with Cute Illustrations -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+              <div class="card" style="padding:10px; cursor:pointer;" onclick="openLessonModal(1)">
+                <div style="height:74px; border-radius:10px; background:var(--pale-green); overflow:hidden; display:flex; align-items:center; justify-content:center; margin-bottom:8px;">
+                  <img src="assets/learn-budget.png" alt="Budgeting 101" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'" />
+                </div>
+                <div style="font-size:12.5px; font-weight:700;">Budgeting 101</div>
+                <div style="font-size:10.5px; color:var(--primary); font-weight:600; margin-top:2px;">100% Complete</div>
+              </div>
+              <div class="card" style="padding:10px; cursor:pointer;" onclick="openLessonModal(4)">
+                <div style="height:74px; border-radius:10px; background:var(--pale-green); overflow:hidden; display:flex; align-items:center; justify-content:center; margin-bottom:8px;">
+                  <img src="assets/learn-saving.png" alt="Saving Smarter" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'" />
+                </div>
+                <div style="font-size:12.5px; font-weight:700;">Saving Smarter</div>
+                <div style="font-size:10.5px; color:var(--primary); font-weight:600; margin-top:2px;">30% Complete</div>
+              </div>
+            </div>
+
+            <div id="learn-lessons-list" style="display:flex; flex-direction:column; gap:9px; margin-bottom:14px;">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div class="card-mint" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+              <div>
+                <h4 style="font-size:14px; font-weight:700;">Knowledge Quiz</h4>
+                <p style="font-size:12px;">5 quick student finance questions</p>
+              </div>
+              <button class="btn-primary btn-sm" onclick="startQuiz()">Take Quiz</button>
+            </div>
+          </section>
+
+          <!-- 17. INTERACTIVE QUIZ -->
+          <section class="screen" id="screen-quiz">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('learn')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span id="quiz-progress-text" style="font-weight:700; font-size:14px;">Question 1 of 5</span>
+              </div>
+              <span class="pill pill-brand" id="quiz-timer">00:45</span>
+            </div>
+
+            <div class="progress-track" style="margin-bottom:16px;">
+              <div class="progress-fill" id="quiz-progress-bar" style="width:20%;"></div>
+            </div>
+
+            <div id="quiz-question-view">
+              <div class="card" style="margin-bottom:14px;">
+                <h3 id="quiz-question-text" style="font-size:16.5px; font-weight:700; line-height:1.4;"></h3>
+              </div>
+              <div id="quiz-options" style="display:flex; flex-direction:column; gap:9px; margin-bottom:14px;"></div>
+              <div id="quiz-feedback" class="card-pale" style="display:none; margin-bottom:14px; font-size:12.5px; line-height:1.45;"></div>
+              <button id="quiz-next-btn" class="btn-primary" style="display:none;" onclick="nextQuizQuestion()">Next Question &rarr;</button>
+            </div>
+
+            <div id="quiz-complete-view" style="display:none; text-align:center; padding-top:20px;">
+              <div class="success-circle">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h2 style="font-size:24px; font-weight:700;">Quiz Complete!</h2>
+              <p id="quiz-final-score" style="font-size:16px; font-weight:700; color:var(--primary); margin-top:6px;">You scored 5 / 5</p>
+              <p style="font-size:13px; color:var(--text-muted); margin-top:6px; margin-bottom:20px;">Great job building your student money instincts.</p>
+              <button class="btn-primary" onclick="showScreen('learn')">Back to Money School</button>
+              <button class="btn-secondary" style="margin-top:10px;" onclick="startQuiz()">Retake Quiz</button>
+            </div>
+          </section>
+
+          <!-- 18. AI FINANCIAL ASSISTANT -->
+          <section class="screen" id="screen-ai">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('home')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <div>
+                  <h2 style="font-size:16px; font-weight:700;">AI Finance Buddy</h2>
+                  <p style="font-size:11px; color:var(--text-muted);">Uses your local demo budget</p>
+                </div>
+              </div>
+              <span class="pill pill-mint">Offline Demo</span>
+            </div>
+
+            <div class="chat-messages" id="ai-chat-messages"></div>
+
+            <div style="display:flex; gap:6px; overflow-x:auto; padding-bottom:8px; margin-bottom:8px;">
+              <button class="chip" onclick="askAIPreset('Can I afford dinner outside today?')">Afford dinner today?</button>
+              <button class="chip" onclick="askAIPreset('Where did most of my money go?')">Where did money go?</button>
+              <button class="chip" onclick="askAIPreset('How much should I save this week?')">Save this week?</button>
+              <button class="chip" onclick="askAIPreset('Am I on track with my Goa goal?')">Goa goal?</button>
+            </div>
+
+            <div style="display:flex; gap:8px;">
+              <input id="ai-input" type="text" class="input-field" placeholder="Ask about your budget..." style="height:44px;" onkeydown="if(event.key==='Enter') sendAIMessage()" />
+              <button class="btn-primary btn-sm" style="height:44px; padding:0 16px;" onclick="sendAIMessage()">Send</button>
+            </div>
+          </section>
+
+          <!-- 19. NOTIFICATIONS -->
+          <section class="screen" id="screen-notifications">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('home')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:700; font-size:16px;">Notifications</span>
+              </div>
+              <button onclick="markAllNotificationsRead()" style="background:none; border:none; font-size:12px; font-weight:600; color:var(--primary); cursor:pointer;">Mark all read</button>
+            </div>
+            <div id="notifications-list" style="display:flex; flex-direction:column; gap:8px;"></div>
+          </section>
+
+          <!-- 20. PROFILE & SETTINGS -->
+          <section class="screen" id="screen-profile">
+            <div class="screen-header">
+              <div class="header-left">
+                <button class="back-btn" onclick="showScreen('more')" aria-label="Back">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <span style="font-weight:700; font-size:16px;">Profile &amp; Settings</span>
+              </div>
+            </div>
+
+            <div class="card-green" style="margin-bottom:14px;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <div style="width:48px; height:48px; border-radius:14px; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px;" id="profile-avatar">AS</div>
+                <div>
+                  <h3 style="font-size:16px; font-weight:700;" id="profile-name">Aditi Sharma</h3>
+                  <p style="font-size:12px; color:rgba(255,255,255,0.82);" id="profile-campus">NSUT &middot; Delhi &middot; B.Tech CSE</p>
+                </div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">
+                <div style="background:rgba(255,255,255,0.14); border-radius:10px; padding:8px; text-align:center;">
+                  <div style="font-family:'DM Sans'; font-size:13px; font-weight:700;">7 Days</div>
+                  <div style="font-size:10px; opacity:0.8;">Streak</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.14); border-radius:10px; padding:8px; text-align:center;">
+                  <div style="font-family:'DM Sans'; font-size:13px; font-weight:700;">Silver</div>
+                  <div style="font-size:10px; opacity:0.8;">Student Tier</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.14); border-radius:10px; padding:8px; text-align:center;">
+                  <div style="font-family:'DM Sans'; font-size:13px; font-weight:700;">2,450</div>
+                  <div style="font-size:10px; opacity:0.8;">Points</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Budget & Account -->
+            <div class="card" style="margin-bottom:12px;">
+              <h4 style="font-size:13.5px; font-weight:700; margin-bottom:10px;">Budget &amp; Account</h4>
+              <label class="input-label" for="profile-budget-input">Monthly Budget (₹)</label>
+              <div style="display:flex; gap:8px; margin-bottom:10px;">
+                <input id="profile-budget-input" type="number" class="input-field" style="height:40px;" value="15000" />
+                <button class="btn-primary btn-sm" style="height:40px;" onclick="updateMonthlyBudget()">Save</button>
+              </div>
+              <div style="font-size:12px; color:var(--text-muted); display:flex; justify-content:space-between;">
+                <span>Linked Account (Demo)</span>
+                <strong style="color:var(--text-primary);">HDFC Bank ··· 7672</strong>
+              </div>
+            </div>
+
+            <!-- Accessibility & Privacy -->
+            <div class="card" style="margin-bottom:12px;">
+              <h4 style="font-size:13.5px; font-weight:700; margin-bottom:10px;">Accessibility &amp; Privacy</h4>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-light);">
+                <div>
+                  <div style="font-size:13px; font-weight:600;">Hide Balance</div>
+                  <div style="font-size:11px; color:var(--text-muted);">Mask amounts on Home</div>
+                </div>
+                <label class="switch"><input type="checkbox" id="pref-hide-bal" onchange="toggleBalanceFromPref(this.checked)"><span class="slider"></span></label>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-light);">
+                <div>
+                  <div style="font-size:13px; font-weight:600;">High Contrast Mode</div>
+                  <div style="font-size:11px; color:var(--text-muted);">Stronger borders &amp; text</div>
+                </div>
+                <label class="switch"><input type="checkbox" id="pref-hc" onchange="toggleAccessibility('hc-mode', this.checked)"><span class="slider"></span></label>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-light);">
+                <div>
+                  <div style="font-size:13px; font-weight:600;">Colour-blind Mode</div>
+                  <div style="font-size:11px; color:var(--text-muted);">Vision preset for status accents</div>
+                </div>
+                <select id="pref-cb-select" class="chip" style="outline:none;" onchange="setColorBlindPreset(this.value)">
+                  <option value="none">Default</option>
+                  <option value="cb-mode">High-Distinction</option>
+                  <option value="protanopia">Protanopia</option>
+                  <option value="deuteranopia">Deuteranopia</option>
+                  <option value="achromatopsia">Grayscale</option>
+                </select>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-top:9px;">
+                <span style="font-size:13px; font-weight:600;">Text Size</span>
+                <div style="display:flex; gap:4px;">
+                  <button class="chip" onclick="setTextSize('sm', this)">S</button>
+                  <button class="chip active" onclick="setTextSize('md', this)">M</button>
+                  <button class="chip" onclick="setTextSize('lg', this)">L</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notification Preferences -->
+            <div class="card" style="margin-bottom:12px;">
+              <h4 style="font-size:13.5px; font-weight:700; margin-bottom:10px;">Notification Preferences</h4>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-light);">
+                <span style="font-size:13px; font-weight:600;">PG Rent Reminders</span>
+                <label class="switch"><input type="checkbox" checked onchange="showToast('Rent reminders ' + (this.checked ? 'enabled' : 'muted'))"><span class="slider"></span></label>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border-light);">
+                <span style="font-size:13px; font-weight:600;">Budget &amp; Safety Alerts</span>
+                <label class="switch"><input type="checkbox" checked onchange="showToast('Budget alerts ' + (this.checked ? 'enabled' : 'muted'))"><span class="slider"></span></label>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-top:7px;">
+                <span style="font-size:13px; font-weight:600;">Weekly Savings Summary</span>
+                <label class="switch"><input type="checkbox" checked onchange="showToast('Weekly summary ' + (this.checked ? 'enabled' : 'muted'))"><span class="slider"></span></label>
+              </div>
+            </div>
+
+            <!-- Home Screen Widget Preview (Filis-inspired) -->
+            <div class="card-pale" style="margin-bottom:12px;">
+              <div style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase; letter-spacing:0.06em;">Home Widget Preview</div>
+              <div class="card-green" style="margin-top:8px; padding:12px 14px; border-radius:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div>
+                    <div style="font-size:11px; color:rgba(255,255,255,0.8);">Centpercent &middot; Safe Today</div>
+                    <div id="widget-safe-preview" class="tabular-nums" style="font-family:'DM Sans'; font-size:22px; font-weight:700;">₹563</div>
+                  </div>
+                  <span class="pill pill-dark">On track</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:8px;">
+              <button class="btn-secondary" style="flex:1;" onclick="resetDemoData()">Reset Demo</button>
+              <button class="btn-secondary" style="flex:1; color:var(--danger); border-color:#FECACA;" onclick="showScreen('welcome')">Logout</button>
+            </div>
+          </section>
+
+          <!-- 21. MORE MENU -->
+          <section class="screen" id="screen-more">
+            <div class="screen-header">
+              <div>
+                <h2 style="font-size:20px; font-weight:700;">More</h2>
+                <p style="font-size:12px; color:var(--text-muted);">All Centpercent student tools</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:9px;">
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('living')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--pale-green); color:var(--primary); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                  <div><strong>Student Living Hub</strong><div style="font-size:11.5px; color:var(--text-muted);">PG rent, utilities, room fund</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('split')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--pale-green); color:var(--primary); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div><strong>Split &amp; Settle</strong><div style="font-size:11.5px; color:var(--text-muted);">Split bills with roommates</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('social')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--warning-bg); color:var(--warning); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+                  <div><strong>Social Helper</strong><div style="font-size:11.5px; color:var(--text-muted);">Outing budget &amp; polite declines</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('safety')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--danger-bg); color:var(--danger); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div><strong>Safety Mode</strong><div style="font-size:11.5px; color:var(--text-muted);">Essentials-only emergency budget</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('learn')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--pale-green); color:var(--primary); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                  <div><strong>Money School &amp; Quiz</strong><div style="font-size:11.5px; color:var(--text-muted);">50/30/20, taxes &amp; student credit</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('ai')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--mint); color:var(--primary-dark); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                  <div><strong>AI Financial Assistant</strong><div style="font-size:11.5px; color:var(--text-muted);">Ask questions about your budget</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('notifications')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--warning-bg); color:var(--warning); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+                  <div><strong>Notifications</strong><div style="font-size:11.5px; color:var(--text-muted);">Rent reminders &amp; budget alerts</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+              <div class="card" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer; padding:12px 14px;" onclick="showScreen('profile')">
+                <div style="display:flex; align-items:center; gap:11px;">
+                  <div style="width:36px; height:36px; border-radius:10px; background:var(--pale-green); color:var(--primary); display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                  <div><strong>Profile &amp; Settings</strong><div style="font-size:11.5px; color:var(--text-muted);">Budget, accessibility &amp; widget</div></div>
+                </div>
+                <span style="color:var(--primary); font-weight:700;">&rarr;</span>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /screen-stage -->
+
+        <!-- BOTTOM NAVIGATION (5 TABS) -->
+        <nav class="bottom-nav" id="bottom-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-tab="home" onclick="showScreen('home')">
+            <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Home</span>
+          </button>
+          <button class="nav-item" data-tab="activity" onclick="showScreen('activity')">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Activity</span>
+          </button>
+          <div class="nav-add-wrap">
+            <button class="nav-add-btn" onclick="showScreen('add')" aria-label="Add Expense">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+          <button class="nav-item" data-tab="goals" onclick="showScreen('goals')">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+            <span>Goals</span>
+          </button>
+          <button class="nav-item" data-tab="more" onclick="showScreen('more')">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <span>More</span>
+          </button>
+        </nav>
+
+        <!-- MODAL OVERLAY -->
+        <div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this) closeModal()">
+          <div class="modal-sheet" id="modal-sheet">
+            <div class="modal-handle"></div>
+            <div id="modal-body"></div>
+          </div>
+        </div>
+
+        <!-- TOAST -->
+        <div class="toast" id="toast">
+          <span id="toast-msg">Saved!</span>
+        </div>
+
+      </div><!-- /phone-screen -->
+    </div><!-- /phone-frame -->
+
+    <!-- INTERACTIVE SIMULATOR BAR -->
+    <div class="simulator-bar">
+      <button class="sim-btn-main" id="sim-toggle-btn" onclick="toggleAutoSimulator()">&#9654; Simulate All Features</button>
+      <button class="sim-btn-sub" onclick="simVoiceExpense()">+ Voice Expense (₹140)</button>
+      <button class="sim-btn-sub" onclick="simPaymentNudge()">Send ₹500 + Goa Nudge</button>
+      <button class="sim-btn-sub" onclick="simLowBudget()">Trigger Safety Mode</button>
+      <button class="sim-btn-sub" onclick="resetDemoData()">Reset Demo</button>
+      <div class="sim-status" id="sim-status-text"></div>
+    </div>
+
+    <!-- FLOW SWITCHER PILLS BELOW PHONE (For Demo) -->
+    <div class="flow-switcher-wrap">
+      <div class="flow-switcher-label">Demo Flow Switcher</div>
+      <div class="flow-switcher" id="flow-switcher">
+        <button class="flow-pill" data-screen="welcome" onclick="showScreen('welcome')">Welcome</button>
+        <button class="flow-pill" data-screen="login" onclick="showScreen('login')">Login</button>
+        <button class="flow-pill" data-screen="otp" onclick="showScreen('otp')">OTP</button>
+        <button class="flow-pill" data-screen="onboard" onclick="showScreen('onboard')">Onboarding</button>
+        <button class="flow-pill active" data-screen="home" onclick="showScreen('home')">Home</button>
+        <button class="flow-pill" data-screen="add" onclick="showScreen('add')">Add Expense</button>
+        <button class="flow-pill" data-screen="activity" onclick="showScreen('activity')">Activity</button>
+        <button class="flow-pill" data-screen="send" onclick="showScreen('send')">Send Money</button>
+        <button class="flow-pill" data-screen="receive" onclick="showScreen('receive')">Receive</button>
+        <button class="flow-pill" data-screen="split" onclick="showScreen('split')">Split Bill</button>
+        <button class="flow-pill" data-screen="living" onclick="showScreen('living')">Living Hub</button>
+        <button class="flow-pill" data-screen="goals" onclick="showScreen('goals')">Goals</button>
+        <button class="flow-pill" data-screen="safety" onclick="showScreen('safety')">Safety Mode</button>
+        <button class="flow-pill" data-screen="social" onclick="showScreen('social')">Social Helper</button>
+        <button class="flow-pill" data-screen="learn" onclick="showScreen('learn')">Learn</button>
+        <button class="flow-pill" data-screen="ai" onclick="showScreen('ai')">AI Assistant</button>
+        <button class="flow-pill" data-screen="profile" onclick="showScreen('profile')">Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
